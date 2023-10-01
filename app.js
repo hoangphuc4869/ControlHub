@@ -54,3 +54,12 @@ var swiper = new Swiper(".cateSwiper", {
     clickable: true,
   },
 });
+
+var swiper = new Swiper(".newProductsSwiper", {
+  slidesPerView: 1,
+
+  pagination: {
+    el: ".swiper-pagination-products",
+    clickable: true,
+  },
+});
