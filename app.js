@@ -39,9 +39,18 @@ var swiper = new Swiper(".mySwiper", {
 
 var swiper = new Swiper(".productsSwiper", {
   slidesPerView: 4,
-  spaceBetween: 30,
+  spaceBetween: 20,
   pagination: {
     el: ".swiper-pagination-products",
+    clickable: true,
+  },
+});
+
+var swiper = new Swiper(".cateSwiper", {
+  slidesPerView: 1,
+
+  pagination: {
+    el: ".swiper-pagination-cate",
     clickable: true,
   },
 });
