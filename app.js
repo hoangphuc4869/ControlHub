@@ -44,6 +44,14 @@ var swiper = new Swiper(".productsSwiper", {
     el: ".swiper-pagination-products",
     clickable: true,
   },
+  breakpoints: {
+    300: {
+      slidesPerView: 2,
+    },
+    800: {
+      slidesPerView: 4,
+    },
+  },
 });
 
 var swiper = new Swiper(".cateSwiper", {
@@ -63,3 +71,48 @@ var swiper = new Swiper(".newProductsSwiper", {
     clickable: true,
   },
 });
+
+var swiper = new Swiper(".swiperFlashDeals", {
+  slidesPerView: 4,
+  grid: {
+    rows: 2,
+    fill: "row",
+  },
+  breakpoints: {
+    300: {
+      slidesPerView: 2,
+    },
+    800: {
+      slidesPerView: 3,
+    },
+    1020: {
+      slidesPerView: 4,
+    },
+  },
+  spaceBetween: 15,
+  pagination: {
+    el: ".swiper-pagination-deals",
+    clickable: true,
+  },
+});
+
+const angleDowns = document.querySelectorAll(".display-options i");
+const list = document.querySelectorAll(".display-options ul");
+
+var isArrowDown = new Array(angleDowns.length).fill(true);
+
+if (angleDowns) {
+  angleDowns.forEach((angle, index) => {
+    angle.addEventListener("click", () => {
+      list[index].classList.toggle("show");
+      if (isArrowDown[index]) {
+        angle.classList.remove("fa-angle-down");
+        angle.classList.add("fa-angle-up");
+      } else {
+        angle.classList.remove("fa-angle-up");
+        angle.classList.add("fa-angle-down");
+      }
+      isArrowDown[index] = !isArrowDown[index];
+    });
+  });
+}
