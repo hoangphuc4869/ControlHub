@@ -95,11 +95,20 @@ var swiper = new Swiper(".swiperFlashDeals", {
     clickable: true,
   },
 });
+var swiper = new Swiper(".productDetailSLider", {
+  slidesPerView: "auto",
+  spaceBetween: 30,
+  freeMode: true,
+});
 
 const angleDowns = document.querySelectorAll(".display-options i");
+const tabMobile = document.querySelectorAll(".tab_mobile i");
 const list = document.querySelectorAll(".display-options ul");
+const listTabs = document.querySelectorAll(".tab_content");
 
 var isArrowDown = new Array(angleDowns.length).fill(true);
+var isArrowDown2 = new Array(tabMobile.length).fill(true);
+console.log(tabMobile, listTabs, isArrowDown2);
 
 if (angleDowns) {
   angleDowns.forEach((angle, index) => {
@@ -115,4 +124,43 @@ if (angleDowns) {
       isArrowDown[index] = !isArrowDown[index];
     });
   });
+}
+
+if (tabMobile) {
+  tabMobile.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      listTabs[index].classList.toggle("showTab");
+      if (isArrowDown2[index]) {
+        tab.classList.remove("fa-angle-down");
+        tab.classList.add("fa-angle-up");
+      } else {
+        tab.classList.remove("fa-angle-up");
+        tab.classList.add("fa-angle-down");
+      }
+      isArrowDown2[index] = !isArrowDown2[index];
+    });
+  });
+}
+
+tabcontent = document.getElementsByClassName("tabcontent");
+for (i = 0; i < tabcontent.length; i++) {
+  tabcontent[i].style.display = "none";
+}
+
+document.getElementById("defaultOpen").click();
+function openCity(evt, tabName) {
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
