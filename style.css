@@ -1047,8 +1047,104 @@ p {
 .showTab {
   display: block;
 }
+
+.inputField {
+  padding: 15px 25px;
+  margin-bottom: 24px;
+  border: none;
+  border-radius: 8px;
+}
+
+.select-using {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 50px top 50%;
+  background-size: 0.65rem auto;
+}
+
+.inputField::placeholder,
+.inputField option,
+select.inputField {
+  color: var(--black-600, #605f5f);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Text/20px/Regular */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+}
+.contactForm p:first-child {
+  color: var(--1000, #281200);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Heading/04 */
+  font-family: Space Grotesk;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px; /* 110% */
+  letter-spacing: -0.4px;
+}
 button.tablinks {
   margin-top: 20px;
+}
+.r-c-item ul {
+  padding-left: 0;
+}
+
+.submitForm {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background: var(--orange-800, #84420a);
+  color: #fff;
+  font-size: 18px;
+}
+
+.submit_wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.c-form {
+  margin-top: 30px;
+}
+
+.r-c-item ul li {
+  width: fit-content;
+  padding: 30px;
+  border-radius: 16px;
+  background: var(--White, #fff);
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+}
+.r-c-item li svg {
+  width: 40px;
+  margin-right: 10px;
+}
+.contactForm {
+  position: relative;
+}
+.contactForm::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  right: -70px;
+  background-color: rgba(127, 119, 119, 0.3);
+  z-index: 2;
+}
+.map {
+  margin: 100px 0;
 }
 @keyframes scroll {
   0% {
@@ -1074,6 +1170,9 @@ button.tablinks {
   }
 }
 @media (max-width: 720px) {
+  .contactForm::before {
+    display: none;
+  }
   .tab-desk,
   .tab {
     display: none;
@@ -1444,5 +1543,14 @@ button.tablinks {
   }
   .flash-deals.single_product {
     margin-top: 50px;
+  }
+  .contactForm::before {
+    display: none;
+  }
+  .map {
+    margin: 50px 0;
+  }
+  .submit_wrap {
+    justify-content: center;
   }
 }
